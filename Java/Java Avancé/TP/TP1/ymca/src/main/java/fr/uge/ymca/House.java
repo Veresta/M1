@@ -14,6 +14,10 @@ public final class House {
 	private final Set<Kind> discounts = new HashSet<>();
 
 	
+	/**
+	 * Add a resident to the house.
+	 * @param r
+	 */
 	public void add(Resident r) {
 		Objects.requireNonNull(r);
 		house.add(r);
@@ -24,6 +28,10 @@ public final class House {
 		return (house.isEmpty() ? "Empty House" : "House with " + house.stream().sorted(Comparator.comparing(Resident::name)).map(Resident::name).collect(Collectors.joining(", ")));
 	}
 	
+	/**
+	 * Return the total price paid in the house for a night.
+	 * @return
+	 */
 	public double averagePrice() {
 		var res = 0D;
 		if (house.isEmpty()) {
@@ -36,6 +44,11 @@ public final class House {
 		return res/house.size();
 	}
 	
+	/**
+	 * Return the price of night for the Resident r.
+	 * @param r
+	 * @return
+	 */
 	private double tarif2(Resident r) {
 		return switch(r) {
 		case Minion x -> 1.0;
