@@ -16,7 +16,7 @@ On ne control pas l'ordre d'éxécution ni le temps durant lequel il va s'execut
 
 ### Exercice 3 :
 
-##### Observer l'évolution du nombre de threads. Que devient le thread main ? Quand est-ce que la JVM s'éteint ?
+###### Observer l'évolution du nombre de threads. Que devient le thread main ? Quand est-ce que la JVM s'éteint ?
 
 Le thread main exécute le lancement des autres threads. Un fois fais le thread main s'arrete puis au fur est a mesure que les autres threads termine, le nombre de thread total diminue.
 
@@ -25,7 +25,7 @@ La JVM s'éteint à la fin de l'exécution des threads en cours.
 
 ### Exercice 4 :
 
-##### Expliquer le comportement observé. Pourquoi ce comportement n’apparaît-il pas quand on utilise System.out.println ?
+###### Expliquer le comportement observé. Pourquoi ce comportement n’apparaît-il pas quand on utilise System.out.println ?
 
 On observe l'apparition de caractère qui se mélange dans l'affichage.
 Ce comportement n'apparait pas avec le __System.out.println__ car il implémente la gestion de verrou.
