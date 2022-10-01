@@ -1,4 +1,4 @@
-# Compte rendu TP1 Java Avancé
+# Compte rendu TP2 Java Avancé
 
 ### Mathis MENAA
 ------
@@ -88,5 +88,14 @@ public static void main(String[] args) {
 		} catch (IOException e) {
 			throw new AssertionError();
 		}
+	}
+```
+
+#### 4) Changer le code pour que le record LineDeleteCommand possède la méthode décrite plus haut et changer le code de transform pour qu'elle appelle cette méthode. 
+
+```java
+public static LineDeleteCommand lineDelete(int nb) {
+		if(nb<0)throw new IllegalArgumentException("Negative line");
+		return new LineDeleteCommand(nb);
 	}
 ```

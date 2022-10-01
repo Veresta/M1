@@ -217,3 +217,76 @@ Ajout de la méthode removeDiscount pour supprimer un kind dans le set discount 
 		discounts.remove(k);
 	}
 ```
+
+#### 10) faire en sorte que l'on puisse ajouter un discount suivi d'un pourcentage de réduction, c'est à dire un entier entre 0 et 100, en implantant une méthode addDiscount(kind, percent). Ajouter également une méthode priceByDiscount qui renvoie une table associative qui a un pourcentage renvoie la somme des prix par nuit auxquels on a appliqué ce pourcentage (la somme est aussi un entier). 
+
+Modification de la méthode addDiscount en ajoutant des préconditions.
+Modification de getVillagePrice pour qu'il renvoie le prix d'un VillagePeople en fonction de si il a une réduction ou non.
+Fonction priceByDiscount qui à partir de la list de Resident et de la HashMap discount renvoie une hashmap calculant le prix des nuits en fonction des réductions et des différents résidents.
+
+
+```java
+	/**
+	 * Add a Kind into Discount set.
+	 * @param k
+	 */
+	/*public void addDiscount(Kind k) {
+		Objects.requireNonNull(k);
+		discounts.add(k);
+	}*/
+	public void addDiscount(Kind k, int percent) {
+		Objects.requireNonNull(k);
+		if(percent<0 || percent > 100) throw new IllegalArgumentException();
+		this.discounts.put(k, percent);
+	}
+	
+	
+	/**
+	 * Return the price for VillagePeople corresponding to the discount.
+	 * @param v
+	 * @param price
+	 * @return price
+	 */
+	private double getPriceVillagePeople(VillagePeople v, int price) {
+		return (discounts.containsKey(v.kind()) ? (price * ((100-discounts.get(v.kind())) * 0.01)) : price);
+	}
+	/*Return true if the resident has a discount else false.*/
+	private boolean hasDiscount(Resident r) {
+		return switch(r) {
+		case Minion x -> false;
+		case VillagePeople x -> (discounts.containsKey(x.kind()) ? true : false);
+		};
+	}
+	
+	/**
+	 * Return Hashmap containing the price of all nights matching with the discount.
+	 * @return
+	 */
+	public HashMap<Integer, Integer> priceByDiscount() {
+		var res = new HashMap<Integer, Integer>();
+		res.put(0, 0);
+		discounts.forEach((k,v) -> res.put(v, 0));
+		System.err.println(res.toString());
+		for(var r : this.house) {
+			switch(r) {
+			case Minion x -> res.put(0, res.get(0) + (int)tarif2(x));
+			case VillagePeople x -> {
+				if(this.hasDiscount(x)) res.put(discounts.get(x.kind()), res.get(discounts.get(x.kind()))+ (int)tarif2(x));
+				else res.put(0, res.get(0) + (int)tarif2(x));
+			}};
+		}
+		return res;
+	}
+	
+	/**
+	 * Delete the kind into Kind Discount Set, if absent sent an exception.
+	 * @param k
+	 */
+	public void removeDiscount(Kind k) {
+		Objects.requireNonNull(k);
+		if(!(discounts.containsKey(k))) {
+			throw new IllegalArgumentException("Exception : Kind doesn't exist");
+		}
+		discounts.remove(k);
+	}
+```
