@@ -7,8 +7,7 @@
     <list default="true" id="81194801-47c5-48ef-bb2f-964fe2f64d01" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Compte rendu TP3 Java Avancé.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Compte rendu TP3 Java Avancé.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/uge/slice/Slice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/uge/slice/Slice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/fr/uge/slice/SliceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/fr/uge/slice/SliceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/uge/slice/Slice3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/uge/slice/Slice3.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +29,7 @@
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="2FuAO2wZKxpcWNoOnyPeeXMNrn1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -44,7 +44,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.Slice3Test">
+  <component name="RunManager" selected="JUnit.Slice2Test">
     <configuration name="Slice2Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="slice" />
       <extension name="coverage">
@@ -92,9 +92,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Slice3Test" />
         <item itemvalue="JUnit.Slice2Test" />
         <item itemvalue="JUnit.SliceTest" />
+        <item itemvalue="JUnit.Slice3Test" />
       </list>
     </recent_temporary>
   </component>
@@ -119,5 +119,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/fr/uge/slice/Slice2.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
