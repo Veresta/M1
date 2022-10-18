@@ -35,15 +35,15 @@ public class BoundedSafeQueue<V> {
 			Thread.ofPlatform().start(() -> {
 				for(;;) {
 					try {
-						Thread.sleep(2);
+						Thread.sleep(2000);
 						test.put(new Random().nextInt());
+						System.out.println(test.take());
 					} catch (InterruptedException e) {
 						throw new AssertionError(e);
 					}
 				}
 			
 			});
-			System.out.println(test.take());
 		}
 	}
 }

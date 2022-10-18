@@ -15,7 +15,7 @@ public class JSONPrinter {
     var components = elem.getClass().getRecordComponents();
     return Arrays.stream(components).map(x -> {
       try {
-        return "\"%s\": %s".formatted(x.getName(), escape(x.getAccessor().invoke(elem)));
+        return "\"%s\": %s".formatted((x.getAnnotation(JSONProperty.class) == null ? x.getName() : x.getAnnotation(JSONProperty.class).value()), escape(x.getAccessor().invoke(elem)));
       } catch (IllegalAccessException e) {
         throw new RuntimeException(e);
       } catch (InvocationTargetException e) {

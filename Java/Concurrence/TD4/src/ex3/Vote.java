@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Vote {
 	
-	private final HashMap<String,Integer> vote;
+	private HashMap<String,Integer> vote;
 	private final Object lock = new Object();
 	private final int nbVoteWaited;
 	private int currentVote;
@@ -17,9 +17,9 @@ public class Vote {
 		vote = new HashMap<>();
 	}
 	
-	private boolean is_full() {
+	private boolean isFull() {
 		synchronized(lock) {
-			return (currentVote == nbVoteWaited ? true : false);
+			return currentVote == nbVoteWaited;
 		}
 	}
 	
@@ -35,14 +35,13 @@ public class Vote {
 		        score = value;
 		      }
 		    }
-		    return winner;	
+		    return winner;
 		}	    
 	}
 	
 	private void voteBis(String s) {
 		synchronized(lock) {
-			if(this.vote.containsKey(s)) vote.put(s, vote.get(s) + 1);
-			else vote.put(s, 1);
+			vote.merge(s, 1, (k, v) -> v = v + 1);
 			this.currentVote+=1;
 		}
 	}
@@ -52,11 +51,11 @@ public class Vote {
 		Objects.requireNonNull(word);
 		synchronized(lock) {
 			voteBis(word);
-			while(!(is_full())) {
+			while(!(isFull())) {
 				lock.wait();
 			}
 			lock.notifyAll();
-			if(is_full() && winner.isEmpty()) winner = this.computeWinner(); 
+			if(isFull() && winner.isEmpty()) winner = this.computeWinner(); 
 			return winner;
 		}
 	}

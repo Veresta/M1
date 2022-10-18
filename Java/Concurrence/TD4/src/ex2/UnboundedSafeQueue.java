@@ -33,8 +33,9 @@ public class UnboundedSafeQueue<V> {
 			Thread.ofPlatform().start(() -> {
 				for(;;) {
 					try {
-						Thread.sleep(2);
+						Thread.sleep(2000);
 						test.add(Thread.currentThread().getName());
+						System.out.println(test.take());
 					} catch (InterruptedException e) {
 						throw new AssertionError(e);
 					}
@@ -42,7 +43,7 @@ public class UnboundedSafeQueue<V> {
 			
 			});
 		}
-		System.out.println(test.take());
+		
 	}
 
 }
