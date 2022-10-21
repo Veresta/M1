@@ -37,7 +37,7 @@ public class JSONPrinterTest {
       var person = new Person("John", "Doe");
       var personJSON = JSONPrinter.toJSON(person);
       assertEquals(
-          Map.of("firstName", "John", "lastName", "Doe"), parse(personJSON));
+              Map.of("firstName", "John", "lastName", "Doe"), parse(personJSON));
     }
 
     @Test
@@ -66,11 +66,11 @@ public class JSONPrinterTest {
       var book = new Book("The Girl with The Dragon Tattoo", "Stieg Larsson", 100);
       var bookJSON = JSONPrinter.toJSON(book);
       assertEquals(
-          Map.of("book-title", "The Girl with The Dragon Tattoo", "book-author", "Stieg Larsson", "book-price", 100),
-          parse(bookJSON));
+              Map.of("book-title", "The Girl with The Dragon Tattoo", "book-author", "Stieg Larsson", "book-price", 100),
+              parse(bookJSON));
     }
   }
-  /*
+
   @Nested
   public class Q3 {
     @Test
@@ -80,8 +80,8 @@ public class JSONPrinterTest {
       var book = new Book("The Girl with The Dragon Tattoo", "Stieg Larsson", 100);
       var bookJSON = JSONPrinter.toJSON(book);
       assertEquals(
-          Map.of("book-title", "The Girl with The Dragon Tattoo", "an_author", "Stieg Larsson", "price", 100),
-          parse(bookJSON));
+              Map.of("book-title", "The Girl with The Dragon Tattoo", "an_author", "Stieg Larsson", "price", 100),
+              parse(bookJSON));
     }
-  }*/
+  }
 }
