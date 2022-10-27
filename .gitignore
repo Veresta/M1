@@ -2,3 +2,5 @@
 .DS_Store
 Java/.DS_Store
 Java/Java Avancé/.DS_Store
+/**/.idea
+/**/target
