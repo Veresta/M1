@@ -42,10 +42,39 @@ public class VectorComputation {
     }
 
     public static int min(int[] array) {
-        return 0;
+        Objects.requireNonNull(array);
+        var size = array.length;
+        var loopBound = SPECIES.loopBound(size);
+        var min = IntVector.broadcast(SPECIES, Integer.MAX_VALUE);
+        var i = 0;
+        for(;i < loopBound; i+= SPECIES.length()){
+            var view = IntVector.fromArray(SPECIES,array,i);
+            min = min.min(view);
+        }
+        var res = min.reduceLanes(VectorOperators.MIN);
+        for(;i < size; i++){
+            if(array[i] < res){
+                res = array[i];
+            }
+        }
+        return res;
     }
 
     public static int minMask(int[] array) {
-        return 0;
+        Objects.requireNonNull(array);
+        var size = array.length;
+        var loopBound = SPECIES.loopBound(size);
+        var min = IntVector.broadcast(SPECIES, Integer.MAX_VALUE);
+        for(var i = 0; i < loopBound; i+= SPECIES.length()){
+            var view = IntVector.fromArray(SPECIES,array,i);
+            var mask = SPECIES.indexInRange(i, loopBound);
+            view = IntVector.fromArray(SPECIES, array, i, mask);
+            min = min.min(view);
+        }
+        //mask treatment <=> 1 test doesn't work
+        //var mask = SPECIES.indexInRange(loopBound, size);
+        //var view = IntVector.fromArray(SPECIES, array, loopBound, mask);
+        //min = min.min(view);
+        return min.reduceLanes(VectorOperators.MIN);
     }
 }

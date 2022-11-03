@@ -35,7 +35,7 @@ public class VectorComputationTest {
       assertEquals(expected, sum);
     }
   }
-  /*
+
   @Nested
   public class Q3 {
 
@@ -49,6 +49,7 @@ public class VectorComputationTest {
     }
   }
 
+
   @Nested
   public class Q4 {
     @ParameterizedTest
@@ -59,6 +60,6 @@ public class VectorComputationTest {
       var expected = new Random(0).ints(length, 0, 1_000).min().orElseThrow();
       assertEquals(expected, min);
     }
-  }*/
+  }
 
 }

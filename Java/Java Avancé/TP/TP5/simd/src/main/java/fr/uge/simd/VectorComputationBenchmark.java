@@ -51,12 +51,12 @@ public class VectorComputationBenchmark {
 		return min;
 	}
 
-	//@Benchmark
+	@Benchmark
 	public int min_vector_array(Blackhole blackhole) {
 		return VectorComputation.min(array);
 	}
 
-	//@Benchmark
+	@Benchmark
 	public int min_vector_mask_array(Blackhole blackhole) {
 		return VectorComputation.minMask(array);
 	}
