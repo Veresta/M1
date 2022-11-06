@@ -1,5 +1,6 @@
 package fr.uge.set;
 
+import java.util.Collection;
 import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
@@ -63,5 +64,10 @@ public class DynamicHashSet<T> {
     public void forEach(Consumer<? super T> consumer){
         Objects.requireNonNull(consumer);
         Stream.of(table).flatMap(entry -> Stream.iterate(entry, Objects::nonNull, Entry::next)).forEach(e -> consumer.accept(e.value));
+    }
+
+    public void addAll(Collection<? extends T> collection){
+        Objects.requireNonNull(collection);
+        collection.stream().forEach(this::add);
     }
 }

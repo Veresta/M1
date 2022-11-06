@@ -4,3 +4,14 @@ Java/.DS_Store
 Java/Java Avancé/.DS_Store
 /**/.idea
 /**/target
+/**/out
+/**/.iml
+*.iml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+.factorypath
+.jar
+.zip

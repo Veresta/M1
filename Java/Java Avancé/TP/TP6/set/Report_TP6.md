@@ -222,3 +222,31 @@ Use a more general type than E to be able to use __Object.equals__ to test if an
         return false;
     }
 ````
+
+## Exercice 4: Wild cards
+
+##### 1) Écrire une méthode addAll, qui permet de recopier une collection d’éléments dans le DynamicHashSet courant.
+
+````java
+    public void addAll(Collection<? extends T> collection){
+        Objects.requireNonNull(collection);
+        collection.stream().forEach(this::add);
+    }
+````
+
+At first, I used here a Collection<T> collection as argument to my method. At first, I didn't understand why the "shouldTakeTheRightTypeOfCollectionAsArgumentOfAddAll()" test doesn't compil. 
+The problem was that my DynamicHashSet object was initialized on <Object> except that as argument to the addAll method there was a String collection while it was expecting an object collection.
+To solve the problem, I used a wild card to make my addAll method accept all objects that inherit from T.
+So now, because String inherits from Object, the test works.
+
+##### 2) Regarder la signature de la méthode addAll dans java.util.Collection. Avez-vous la même signature ? Modifier votre code si nécessaire.
+
+(cf Q1)
+
+##### Expliquer ce que veut dire le '?' dans la signature de addAll
+
+? is a way symbol to point an unnamed object.
+
+##### 3) Ne devrait-on pas aussi utiliser un '?' dans la signature de la méthode forEach ?
+
+Yes, we can use an __Consumer<? super T> consumer__ now in argument.

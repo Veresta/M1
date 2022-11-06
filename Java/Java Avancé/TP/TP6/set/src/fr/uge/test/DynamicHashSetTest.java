@@ -193,7 +193,7 @@ public class DynamicHashSetTest {
     }
   }
 
-  /*
+
   @Nested
   public class Exercice3 {
     @Test
@@ -234,5 +234,5 @@ public class DynamicHashSetTest {
       var set = new DynamicHashSet<String>();
       assertThrows(NullPointerException.class, () -> set.addAll(null));
     }
-  }*/
+  }
 }
