@@ -14,4 +14,4 @@ Java/Java Avancé/.DS_Store
 .classpath
 .factorypath
 .jar
-.zip
+*.zip
