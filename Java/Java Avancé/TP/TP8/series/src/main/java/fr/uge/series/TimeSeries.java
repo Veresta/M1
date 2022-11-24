@@ -99,12 +99,8 @@ public class TimeSeries<T> {
 
         public Index and(Index indexBis) {
             if(!this.belongsTo().equals(indexBis.belongsTo())) throw new IllegalArgumentException("Both doesn't belongs to the same instance");
-            Supplier<IntStream> tmp = () -> Arrays.stream(this.index).distinct();
-            var res = new ArrayList<Integer>();
-            for(var i : indexBis.index){
-                if(tmp.get().anyMatch(indice -> indice == i)) res.add(i);
-            }
-            return new Index(res.stream().mapToInt(Integer::intValue).sorted().toArray());
+            var res = Arrays.stream(this.index).boxed().collect(Collectors.toSet());
+            return new Index(Arrays.stream(indexBis.index).filter(res::contains).toArray());
         }
     }
     public Index index(){

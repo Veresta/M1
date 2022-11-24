@@ -15,7 +15,7 @@ public class TimeSeries<T> {
             Objects.requireNonNull(element);
         }
     }
-}
+
 ```
 
 ##### 2) On souhaite maintenant écrire les méthodes dans TimeSeries : add(timestamp, element)
@@ -91,7 +91,7 @@ public class TimeSeries<T> {
 ```
 
 ##### 5) On souhaite ajouter une autre méthode index(lambda) qui prend en paramètre une fonction/lambda qui est appelée sur chaque élément de la TimeSeries et indique si l'élément doit ou non faire partie de l'index.
-La lambda doit être de type Predicate.
+Lambda type need to be "Predicate".
 
 ````java
     public Index index(Predicate<? super T> fun){
@@ -103,7 +103,7 @@ La lambda doit être de type Predicate.
 ##### Par exemple, avec la TimeSeries contenant les Data (24 | "hello"), (34 | "time") et (70 | "series") et un Index [0, 2], la fonction sera appelée avec les Data (24 | "hello") et (70 | "series").
 ##### Quel doit être le type du paramètre de la méthode forEach(lambda) ? 
 
-La lambda doit être de type Consumer.
+Lambda type need to be "Consumer".
 
 ##### Écrire la méthode forEach(lambda) dans la classe Index.
 
@@ -115,11 +115,11 @@ La lambda doit être de type Consumer.
 
 ##### 7) Quelle interface doit implanter la classe Index pour pouvoir être utilisée dans une telle boucle ?
 
-On doit implémenter l'interface Iterable.
+Have to implement the Iterable interface.
 
 ##### Quelle méthode de l'interface doit-on implanter ? Et quel est le type de retour de cette méthode ? Faites les modifications qui s'imposent dans la classe Index et vérifiez que les tests marqués "Q7" passent.
 
-Il faut implementer la méthode Iterator qui aura comme valeur de retour une classe anonyme Iterator<Data<T>>.
+Need to implement the Iterator method which will have as return value an anonymous class Iterator<Data<T>>.
 
 ````java
 public class Index implements Iterable<Data<T>> {
@@ -189,3 +189,11 @@ Ajout de la methode belongsTo pour indiquer à quelle instance appartient quel i
 ````
 
 ##### 9) Même question que précédemment, mais au lieu de vouloir faire un or, on souhaite faire un and entre deux Index.
+
+````java
+    public Index and(Index indexBis) {
+            if(!this.belongsTo().equals(indexBis.belongsTo())) throw new IllegalArgumentException("Both doesn't belongs to the same instance");
+            var res = Arrays.stream(this.index).boxed().collect(Collectors.toSet());
+            return new Index(Arrays.stream(indexBis.index).filter(res::contains).toArray());
+    }
+````
