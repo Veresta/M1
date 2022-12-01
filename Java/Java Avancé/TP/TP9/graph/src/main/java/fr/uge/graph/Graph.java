@@ -2,6 +2,7 @@ package fr.uge.graph;
 
 import javax.swing.text.html.Option;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -23,8 +24,8 @@ public interface Graph<T> {
 
   /**
    * Return the weight of an edge.
-   * @param src source ndoe.
-   * @param dst destination nde.
+   * @param src source node.
+   * @param dst destination node.
    * @return the weight of the edge between {@code src}
    *         and {@code dst} or Optional.empty()
    * @throws IndexOutOfBoundsException if src or dst is
@@ -65,7 +66,7 @@ public interface Graph<T> {
    *        have src as source node.
    * @throws NullPointerException if consumer is null.
    */
-   void edges(int src, EdgeConsumer<T> edgeConsumer);
+   void edges(int src, EdgeConsumer<? super T> edgeConsumer);
   
   /**
    * Returns all the vertices that are connected to
@@ -78,7 +79,7 @@ public interface Graph<T> {
    * @throws IndexOutOfBoundsException if src is
    *         not a valid vertex number
    */
-  //neighborIterator(src);
+  Iterator<Integer> neighborIterator(int src);
   
   /**
    * Returns all the vertices that are connected to
@@ -91,5 +92,5 @@ public interface Graph<T> {
    * @throws IndexOutOfBoundsException if src is
    *         not a valid vertex number
    */
-  //neighborStream(src);
+  IntStream neighborStream(int src);
 }

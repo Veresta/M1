@@ -1,10 +1,8 @@
 package fr.uge.graph;
 
-import java.util.Arrays;
-import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.IntStream;
+import java.util.stream.StreamSupport;
 
 final class MatrixGraph<T> implements Graph<T> {
     private final T[] array;
@@ -33,10 +31,48 @@ final class MatrixGraph<T> implements Graph<T> {
     }
 
     @Override
-    public void edges(int src, EdgeConsumer<T> edgeConsumer) {
+    public void edges(int src, EdgeConsumer<? super T> edgeConsumer) {
         Objects.requireNonNull(edgeConsumer);
         Objects.checkIndex(src, nodeCount);
-        IntStream.range(0, nodeCount).forEach(index -> edgeConsumer.edge(index*nodeCount,nodeCount,));
+        IntStream.range(0, nodeCount).forEach(index ->{
+            var weight = getWeight(src, index);
+            weight.ifPresent(t -> edgeConsumer.edge(src, index, t));
+        });
+    }
 
+    @Override
+    public Iterator<Integer> neighborIterator(int src) {
+        Objects.checkIndex(src, nodeCount);
+        return new Iterator<>() {
+            private int currentIndex;
+
+
+            private boolean existAnotherEdge(){
+                return IntStream.range(currentIndex, nodeCount).anyMatch(index -> getWeight(src, index).isPresent());
+            }
+            @Override
+            public boolean hasNext() {
+                return currentIndex <= nodeCount - 1 && existAnotherEdge();
+            }
+            @Override
+            public Integer next() {
+                if(!hasNext()) throw new NoSuchElementException("No element found");
+                var res = getWeight(src, currentIndex);
+                var tmp =  currentIndex;
+                currentIndex++;
+                while(res.isEmpty()){
+                    res = getWeight(src, currentIndex);
+                    tmp = currentIndex;
+                    if(!hasNext()) throw new NoSuchElementException("No element found");
+                    currentIndex++;
+                }
+                return tmp;
+            }
+        };
+    }
+
+    public IntStream neighborStream(int src){
+        Objects.checkIndex(src, nodeCount);
+        return null;
     }
 }

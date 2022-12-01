@@ -78,7 +78,7 @@ public class TimeSeries<T> {
 
                 @Override
                 public Data<T> next() {
-                    if(currentIndex >= size) throw new NoSuchElementException("No element found");
+                    if(!hasNext()) throw new NoSuchElementException("No element found");
                     var res = TimeSeries.this.get(index[currentIndex]);
                     currentIndex++;
                     return res;
