@@ -58,7 +58,7 @@ public class GraphTest {
     <T> Graph<T> createGraph(int vertexCount);
   }
   static Stream<GraphFactory> graphFactoryProvider() {
-    return Stream.of(Graph::createMatrixGraph/*, Graph::createNodeMapGraph*/);
+    return Stream.of(Graph::createMatrixGraph, Graph::createNodeMapGraph);
   }
 
   @Nested
@@ -470,5 +470,66 @@ public class GraphTest {
       });
     }
   }
+  @Nested
+  public class Q10 {
 
+    @ParameterizedTest
+    @MethodSource("fr.uge.graph.GraphTest#graphFactoryProvider")
+    public void iteratorRemove(GraphFactory factory) {
+      var graph = factory.createGraph(11);
+      graph.addEdge(3, 10, 13);
+      var neighbors = graph.neighborIterator(3);
+      assertEquals(10, (int) neighbors.next());
+      neighbors.remove();
+      assertFalse(graph.getWeight(3, 10).isPresent());
+    }
+
+    @ParameterizedTest
+    @MethodSource("fr.uge.graph.GraphTest#graphFactoryProvider")
+    public void iteratorRemoveInvalid(GraphFactory factory) {
+      var graph = factory.createGraph(21);
+      graph.addEdge(20, 19, 20);
+      var neighbors = graph.neighborIterator(20);
+      assertThrows(IllegalStateException.class, neighbors::remove);
+    }
+
+    @ParameterizedTest
+    @MethodSource("fr.uge.graph.GraphTest#graphFactoryProvider")
+    public void iteratorRemoveTwiceInvalid(GraphFactory factory) {
+      var graph = factory.createGraph(21);
+      graph.addEdge(20, 19, 20);
+      var neighbors = graph.neighborIterator(20);
+      neighbors.next();
+      neighbors.remove();
+      assertFalse(graph.getWeight(20, 19).isPresent());
+      assertThrows(IllegalStateException.class, neighbors::remove);
+    }
+
+    @ParameterizedTest
+    @MethodSource("fr.uge.graph.GraphTest#graphFactoryProvider")
+    public void iteratorRemoveALot(GraphFactory factory) {
+      var graph = factory.createGraph(50);
+      for (var i = 0; i < 50; i++) {
+        for (var j = 0; j < i; j++) {
+          graph.addEdge(i, j, i + j);
+        }
+      }
+
+      for (int i = 0; i < 50; i++) {
+        var neighbors = graph.neighborIterator(i);
+        for (var j = 0; j < i; j++) {
+          assertTrue(neighbors.hasNext());
+          neighbors.next();
+          neighbors.remove();
+        }
+        assertFalse(neighbors.hasNext());
+      }
+
+      for (var i = 0; i < 50; i++) {
+        for (var j = 0; j < 50; j++) {
+          assertTrue(graph.getWeight(i, j).isEmpty());
+        }
+      }
+    }
+  }
 }

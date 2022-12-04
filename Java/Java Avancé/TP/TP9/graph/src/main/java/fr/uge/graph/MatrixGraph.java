@@ -2,7 +2,6 @@ package fr.uge.graph;
 
 import java.util.*;
 import java.util.stream.IntStream;
-import java.util.stream.StreamSupport;
 
 final class MatrixGraph<T> implements Graph<T> {
     private final T[] array;
@@ -31,22 +30,11 @@ final class MatrixGraph<T> implements Graph<T> {
     }
 
     @Override
-    public void edges(int src, EdgeConsumer<? super T> edgeConsumer) {
-        Objects.requireNonNull(edgeConsumer);
-        Objects.checkIndex(src, nodeCount);
-        IntStream.range(0, nodeCount).forEach(index ->{
-            var weight = getWeight(src, index);
-            weight.ifPresent(t -> edgeConsumer.edge(src, index, t));
-        });
-    }
-
-    @Override
     public Iterator<Integer> neighborIterator(int src) {
         Objects.checkIndex(src, nodeCount);
         return new Iterator<>() {
             private int currentIndex;
-
-
+            private boolean canDelete;
             private boolean existAnotherEdge(){
                 return IntStream.range(currentIndex, nodeCount).anyMatch(index -> getWeight(src, index).isPresent());
             }
@@ -66,13 +54,16 @@ final class MatrixGraph<T> implements Graph<T> {
                     if(!hasNext()) throw new NoSuchElementException("No element found");
                     currentIndex++;
                 }
+                canDelete = true;
                 return tmp;
             }
-        };
-    }
 
-    public IntStream neighborStream(int src){
-        Objects.checkIndex(src, nodeCount);
-        return null;
+            @Override
+            public void remove(){
+                if(!canDelete) throw new IllegalStateException("Can't delete");
+                array[src * nodeCount + currentIndex-1] = null;
+                canDelete = false;
+            }
+        };
     }
 }
