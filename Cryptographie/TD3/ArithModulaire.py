@@ -1,4 +1,6 @@
 import math
+import random
+import sys
 
 def gcd(a, b):
     a,b = abs(a), abs(b)
@@ -57,3 +59,66 @@ def powermod(a,m,n):
     return res
 
 print("powermod function :",powermod(5,666,2**101-1))
+
+def fermat_prime_function(p, numberOfTest):
+    liste = list()
+    for i in range(numberOfTest):
+        a = random.randint(1, p-1)
+        if(xgcd(a, p) == 1):
+            liste.append(a)
+    print(liste)
+    for a in liste:
+        if(powermod(a,p-1, p) != 1):
+            print(p, " is not prime")
+            return False
+    print(p, "is probably prime")
+    return True
+
+def fermat_test(p, testNb):
+    for j in range(testNb):
+        a = random.randint(1,p-1)
+        if powermod(a, p-1, p) != 1:
+            return False
+    return True
+
+print(fermat_test(9,5))
+
+def lotOfFermat(number):
+    res = []
+    for i in range(2, number):
+        if fermat_test(i, 5)==True:
+            res.append(i)
+    return res
+
+print(lotOfFermat(100))
+
+def miller_rabin(n , num_trials = 4):
+    if n % 2 == 0 or n < 2:
+        return False
+    d = n - 1
+    s = 0
+    while (d % 2 == 0):
+        d //= 2
+        s+=1
+    for i in range(num_trials):
+        a = random.randint(1, n-1)
+        x = powermod(a, d, n)
+        if x == 1 or x == n - 1:
+            continue
+    for r in range(1, s):
+        x = powermod(x, 2, n)
+        if x == 1:
+            return False
+        if x == n-1:
+            break
+    
+    if x!= n - 1:
+        return False 
+    
+    return True
+
+res = []
+for i in range(100):
+    if miller_rabin(i) == True:
+        res.append(i)
+print(res)
