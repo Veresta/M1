@@ -69,17 +69,17 @@ public class Seq<T> {
 
 ##### 5) Avant de se lancer dans l'implantation de map, quelle doit être sa signature ?
 
-La signature de la méthode map doit être de la forme suivante : __public <F> Seq<F> map(Function<? super T, ? extends F> mapper)__
+The signature of the map method should be of the following form: __public <F> Seq<F> map(Function<? super T, ? extends F> mapper)__
 
-Le type F signifie le nouveau type supposé contenu dans ma liste.
-La Function en paramètre doit prendre un __? super T__ qui précise le type courant, et en sortie on veut le nouveau type voulu.
+The type F means the new type assumed to be contained in my list.
+The Function in parameter must take a __? super T__ which specifies the current type, and in output we want the new type wanted.
 
 ##### Quel doit être le type des éléments de la liste ? Et le type de la fonction stockée ?
 
-Le type des éléments de la liste doit être __?__, en interne le type n'a pas d'importance, c'est seulement à l'extérieur
-que l'on affiche le type.
+The type of the elements of the list must be __?__, internally the type is not important, it is only externally
+that we display the type.
 
-La fonction stockée doit être de la forme : __Function<Object, ? extends T>__
+The stored function must be of the form: __Function<Object, ? extends T>__
 
 ##### Faire les modifications correspondantes, puis changer le code des méthodes pour les prendre en compte. Enfin, écrire le code de map.
 ```java
@@ -146,7 +146,8 @@ public class Seq<T> {
     }
 ```
 ##### 7) Faire en sorte que l'on puisse utiliser la boucle for-each-in sur un Seq
-Il faut implementer la méthode iterable à notre classe.
+
+Need to implement the iterable interface to our class.
 
 ```java
     @Override

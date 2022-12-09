@@ -73,7 +73,6 @@ public final class Seq<T> implements Iterable<T> {
     public void forEach(Consumer<? super T> func) {
         Objects.requireNonNull(func);
         internal.stream().map(mapper).forEach(func);
-        //internal.forEach(func);
     }
 
     public <F> Seq<F> map(Function<? super T, ? extends F> newMapper) {
@@ -100,7 +99,6 @@ public final class Seq<T> implements Iterable<T> {
                 Objects.requireNonNull(action);
                 return selfIterator.tryAdvance(e -> action.accept(mapper.apply(e)));
             }
-
             @Override
             public Spliterator<T> trySplit() {
                 return getSpliterator(selfIterator.trySplit());
