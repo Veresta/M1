@@ -14,7 +14,6 @@ public final class Seq2<T> implements Iterable<T> {
     private final Function<Object, ? extends T> mapper;
     private final int size;
 
-
     @SuppressWarnings("unchecked")
     public Seq2(List<? extends T> liste) {
         this(liste, x -> (T) x);

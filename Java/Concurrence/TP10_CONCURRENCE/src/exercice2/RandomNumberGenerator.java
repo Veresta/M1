@@ -13,7 +13,7 @@ public class RandomNumberGenerator {
   }
   
   public long next() {  // Marsaglia's XorShift
-    x.getAndUpdate(x -> x ^ (x >>> 12) ^ (x << 25) ^ (x >>> 27) * 2685821657736338717L);
+    x.getAndUpdate(x -> ((x ^ (x >>> 12)) ^ (x << 25) ^ (x >>> 27))* 2685821657736338717L);
     return x.get();
   }
   
