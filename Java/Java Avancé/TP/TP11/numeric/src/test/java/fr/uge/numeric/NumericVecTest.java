@@ -854,4 +854,68 @@ public class NumericVecTest {
       );
     }
   }
+  @Nested
+  public class Q9 {
+
+    @Test
+    public void stream() {
+      var seq = NumericVec.longs();
+      seq.add(12L);
+      seq.add(1L);
+      assertEquals(List.of(12L, 1L), seq.stream().toList());
+    }
+
+    @Test
+    public void streamCount() {
+      var seq = NumericVec.ints(2, 3, 4);
+      assertEquals(3, seq.stream().map(__ -> fail()).count());
+    }
+
+    @Test
+    public void streamParallel() {
+      var seq = IntStream.range(0, 1_000_000).boxed().collect(NumericVec.toNumericVec(NumericVec::ints));
+      var thread = Thread.currentThread();
+      var otherThreadCount = seq.stream().parallel().mapToInt(__ -> thread != Thread.currentThread()? 1: 0).sum();
+      assertNotEquals(0, otherThreadCount);
+    }
+
+    @Test
+    public void streamMutation() {
+      var seq = NumericVec.doubles();
+      seq.add(32.);
+      var stream = seq.stream();
+      seq.add(64.);
+      assertEquals(List.of(32.), stream.toList());
+    }
+
+    @Test
+    public void streamDontSplitIfNotEnoughElements() {
+      var seq = NumericVec.ints();
+      IntStream.range(0, 512).forEach(seq::add);
+      assertNull(seq.stream().spliterator().trySplit());
+    }
+
+    @Test
+    public void streamSplitIfEnoughElements() {
+      var seq = NumericVec.ints();
+      IntStream.range(0, 2_048).forEach(seq::add);
+      assertNotNull(seq.stream().spliterator().trySplit());
+    }
+
+    @Test
+    public void streamNotParallelByDefault() {
+      var stream = NumericVec.longs(200L).stream();
+      assertFalse(stream.isParallel());
+    }
+
+    @Test
+    public void streamCharacteristics() {
+      var spliterator = NumericVec.longs().stream().spliterator();
+      assertAll(
+              () -> spliterator.hasCharacteristics(Spliterator.NONNULL),
+              () -> spliterator.hasCharacteristics(Spliterator.ORDERED),
+              () -> spliterator.hasCharacteristics(Spliterator.IMMUTABLE)
+      );
+    }
+  }
 }

@@ -1,15 +1,12 @@
 package fr.uge.numeric;
 
 import java.util.*;
-import java.util.function.BiConsumer;
-import java.util.function.BinaryOperator;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.stream.*;
 
-public class NumericVec<T> implements Iterable<T> {
+public final class NumericVec<T> implements Iterable<T> {
     private long[] internal;
     private int size; //Current size
     private final Function<T, Long> into;
@@ -116,36 +113,51 @@ public class NumericVec<T> implements Iterable<T> {
     }
 
 
-    public static <E> Collector<? super E, NumericVec<E>, List<E>> toNumericVec(Supplier<NumericVec<E>> fun) {
+    public static <E> Collector<E, ?, NumericVec<E>> toNumericVec(Supplier<NumericVec<E>> fun) {
         Objects.requireNonNull(fun);
-        return new Collector<>() {
+        return Collector.of(fun, NumericVec::add, (nvec, other) -> {
+            nvec.addAll(other);
+            return nvec;
+        });
+    }
+
+    private Spliterator<T> spliterator(int start, int end) {
+        return new Spliterator<>() {
+
+            private int currentPos = start;
+
             @Override
-            public Supplier<NumericVec<E>> supplier() {
-                return fun;
+            public boolean tryAdvance(Consumer<? super T> action) {
+                if (currentPos == end) {
+                    return false;
+                }
+                action.accept(get(currentPos++));
+                return true;
             }
 
             @Override
-            public BiConsumer<NumericVec<E>, E> accumulator() {
-                return NumericVec::add;
+            public Spliterator<T> trySplit() {
+                var middle = (end + currentPos) >>> 1;
+                if (middle == currentPos || end - start < 1024) {
+                    return null;
+                }
+                var split = spliterator(currentPos, middle);
+                currentPos = middle;
+                return split;
             }
 
             @Override
-            public BinaryOperator<NumericVec<E>> combiner() {
-                return (vec1, vec2) -> {
-                    vec1.addAll(vec2);
-                    return vec1;
-                };
+            public long estimateSize() {
+                return end - start;
             }
 
             @Override
-            public Function<NumericVec<E>, List<E>> finisher() {
-                return Collections::unmodifiableList;
-            }
-
-            @Override
-            public Set<Characteristics> characteristics() {
-                return Set.of(Characteristics.UNORDERED);
+            public int characteristics() {
+                return IMMUTABLE | NONNULL | ORDERED | SIZED | SUBSIZED;
             }
         };
+    }
+    public Stream<T> stream() {
+        return StreamSupport.stream(spliterator(0, size), size >= 1024);
     }
 }
