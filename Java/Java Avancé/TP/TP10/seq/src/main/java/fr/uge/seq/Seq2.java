@@ -60,13 +60,14 @@ public final class Seq2<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
+        var currentSize = size();
         return new Iterator<>() {
 
             private int currentIndex;
 
             @Override
             public boolean hasNext() {
-                return currentIndex < size();
+                return currentIndex < currentSize;
             }
 
             @Override

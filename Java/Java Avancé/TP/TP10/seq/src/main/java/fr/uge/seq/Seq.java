@@ -51,13 +51,14 @@ public final class Seq<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
+        var currentSize = size();
         return new Iterator<>() {
 
             private int currentIndex;
 
             @Override
             public boolean hasNext() {
-                return currentIndex < internal.size();
+                return currentIndex < currentSize;
             }
 
             @Override
