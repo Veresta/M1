@@ -14,23 +14,21 @@ public class ReadStandardInputWithEncoding {
 	}
 
 	private static String stringFromStandardInput(Charset cs) throws IOException {
-		var res = "";
 		var mainBuffer = ByteBuffer.allocate(BUFFER_SIZE);
 		try(var scanner = Channels.newChannel(System.in)){
 			while(scanner.read(mainBuffer) != -1){
 				if(!mainBuffer.hasRemaining()){
-					var tmp = mainBuffer;
-					mainBuffer = ByteBuffer.allocate(mainBuffer.capacity()*2);
-					mainBuffer.put(tmp);
+					var tmp = ByteBuffer.allocate(mainBuffer.capacity()*2);
+					mainBuffer.flip();
+					tmp.put(mainBuffer);
+					mainBuffer = tmp;
 				}
-				scanner.read(mainBuffer);
 			}
 			mainBuffer.flip();
-			res = cs.decode(mainBuffer).toString();
+			return cs.decode(mainBuffer).toString();
 		}
-		return res;
 	}
-
+	
 	public static void main(String[] args) throws IOException {
 		if (args.length != 1) {
 			usage();
