@@ -6,10 +6,12 @@ import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 import java.nio.charset.Charset;
 import java.util.Scanner;
+import java.util.concurrent.ArrayBlockingQueue;
 
-public class NetcatUDP {
+public class ClientUpperCaseUDPTimeout {
     private static final int BUFFER_SIZE = 1024;
 
+    private final ArrayBlockingQueue<String> array = new ArrayBlockingQueue<>(10);
     private static void usage() {
         System.out.println("Usage : NetcatUDP host port charset");
     }
@@ -39,12 +41,5 @@ public class NetcatUDP {
                 buffer.clear();
             }
         }
-
-        //$ java -jar ServerUpperCaseUDP.jar 4545 Latin1
-        //$ java fr.uge.net.udp.NetcatUDP 4545 UTF-8
-
-        //coté client, on envoie un msg formaté en UTF-8
-        //lorsque le serveur le reçoit, il ne va pas interpreter les séquences debits de la meme manière qu'en UTF-8
-        //d'où le message reçu différent.
     }
 }

@@ -9,6 +9,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.IllegalCharsetNameException;
 import java.nio.charset.StandardCharsets;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -35,6 +36,8 @@ public class ClientBetterUpperCaseUDP {
 	 *         or an empty Optional if the buffer would be larger than 1024
 	 */
 	public static Optional<ByteBuffer> encodeMessage(String msg, String charsetName) {
+		Objects.requireNonNull(msg);
+		Objects.requireNonNull(charsetName);
 		var msgBuffer = Charset.forName(charsetName).encode(msg);
 		if(msgBuffer.remaining() + Integer.BYTES + charsetName.length() > MAX_PACKET_SIZE){
 			return Optional.empty();
@@ -59,6 +62,7 @@ public class ClientBetterUpperCaseUDP {
 	 * @return an Optional containing the String represented by buffer, or an empty Optional if the buffer cannot be decoded
 	 */
 	public static Optional<String> decodeMessage(ByteBuffer buffer) {
+		Objects.requireNonNull(buffer);
 		buffer.flip();
 		if(buffer.remaining() < Integer.BYTES){
 			return Optional.empty();
@@ -71,9 +75,7 @@ public class ClientBetterUpperCaseUDP {
 		}
 		buffer.limit(limit);
 		var charsetName = ASCII_CHARSET.decode(buffer).toString();
-		var posBeginMsg = buffer.position();
-		buffer.clear();
-		buffer.position(posBeginMsg);
+		buffer.limit(initialLimit);
 		try{
 			var charset = Charset.forName(charsetName);
 			return Optional.of(charset.decode(buffer).toString());
