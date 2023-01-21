@@ -7,14 +7,18 @@ import java.nio.channels.DatagramChannel;
 import java.nio.charset.Charset;
 import java.util.Scanner;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ClientUpperCaseUDPTimeout {
     private static final int BUFFER_SIZE = 1024;
 
-    private final ArrayBlockingQueue<String> array = new ArrayBlockingQueue<>(10);
     private static void usage() {
         System.out.println("Usage : NetcatUDP host port charset");
     }
+
+    private static final Logger LOGGER = Logger.getLogger(ClientUpperCaseUDPTimeout.class.getName());
 
     public static void main(String[] args) throws IOException {
         if (args.length != 3) {
@@ -22,24 +26,50 @@ public class ClientUpperCaseUDPTimeout {
             return;
         }
 
+        ArrayBlockingQueue<String> queue = new ArrayBlockingQueue<>(10);
+
         var server = new InetSocketAddress(args[0], Integer.parseInt(args[1]));
         var cs = Charset.forName(args[2]);
         var buffer = ByteBuffer.allocate(BUFFER_SIZE);
 
-        try (var scanner = new Scanner(System.in);
-             DatagramChannel dc = DatagramChannel.open();) {
+        try (DatagramChannel dc = DatagramChannel.open();) {
             dc.bind(null);
-            while (scanner.hasNextLine()) {
-                var line = scanner.nextLine();
-                var sendBuffer = cs.encode(line); // Encodage de la chaine en byteBuffer
-                dc.send(sendBuffer, server); // Envoie du packet au server
-
-                var sender = (InetSocketAddress) dc.receive(buffer); //Méthode bloquante attendant la récupération du packet
-                buffer.flip(); // Passage en mode lecture
-                var msg = cs.decode(buffer); // Décodage pour obtenir le message
-                System.out.println("Received " + buffer.remaining() + " bytes from " + sender + " msg -> " + msg);
-                buffer.clear();
+            var threadListener = Thread.ofPlatform().start(() -> {
+                while(!Thread.interrupted()) {
+                    try {
+                        var sender = (InetSocketAddress) dc.receive(buffer);
+                        buffer.flip();
+                        var msg = cs.decode(buffer);
+                        queue.put(msg.toString());
+                    } catch (IOException e) {
+                        LOGGER.log(Level.SEVERE, "Receive exception", e);
+                    } catch (InterruptedException e){
+                        LOGGER.info("Interrupted");
+                        return;
+                    }
+                    buffer.clear();
+                }
+            });
+            try (var scanner = new Scanner(System.in)){
+                while (scanner.hasNextLine()) {
+                    try {
+                        var line = scanner.nextLine();
+                        var sendBuffer = cs.encode(line);
+                        dc.send(sendBuffer, server);
+                        var msg = queue.poll(1, TimeUnit.SECONDS);
+                        while(msg == null){
+                            LOGGER.warning("Le serveur n'a pas répondu");
+                            sendBuffer.clear();
+                            dc.send(sendBuffer, server);
+                            msg = queue.poll(1, TimeUnit.SECONDS);
+                        }
+                        System.out.println(msg);
+                    } catch (IOException | InterruptedException e) {
+                        LOGGER.log(Level.SEVERE, "Severe Exception", e);
+                    }
+                }
             }
+            threadListener.interrupt();
         }
     }
 }
