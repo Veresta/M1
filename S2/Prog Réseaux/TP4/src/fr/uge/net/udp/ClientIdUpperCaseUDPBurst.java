@@ -86,7 +86,7 @@ public class ClientIdUpperCaseUDPBurst {
                     }
                     var id = buffer.getLong();
                     var msg = UTF8.decode(buffer).toString();
-                    logger.info("Receive id:" + id + "msg: " + msg);
+                    logger.info("Receive id:" + id + " msg: " + msg);
                     answersLog.setCompleted((int) id);
                     upperCaseLines[(int) id] = msg;
                 }

@@ -9,6 +9,7 @@ my $nb_octet = 0;
 
 my %acces_url;
 my %acces_ip;
+my %acces_volume;
 
 open (my $fd, '<', $ARGV[0]) or die ("open: $!");
 while( defined( my $ligne = <$fd> ) ) {
@@ -21,6 +22,7 @@ while( defined( my $ligne = <$fd> ) ) {
         $nb_octet+= $d;
         $acces_url{$b}++;
         $acces_ip{$a}++;
+        $acces_volume{$a} += $d;
     }
     
 }
@@ -36,5 +38,10 @@ foreach my $key (sort {$acces_url{$b} <=> $acces_url{$a}}  keys %acces_url){
     print "$key => $acces_url{$key}\n";
 }
 
-print "10 IP avec le plus d'accès au serveur :";
-#A finir
+print "10 IP avec le plus d'accès au serveur + volume correspondant :";
+
+foreach my $key (sort {$acces_ip{$b} <=> $acces_ip{$a}} keys %acces_ip){
+    print "$key => $acces_ip{$key} => $acces_volume{$key}\n";
+}
+
+#Limite le résultat à 10
