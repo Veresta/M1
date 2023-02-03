@@ -24,7 +24,6 @@ public class ServerEcho {
         selector = Selector.open();
         dc = DatagramChannel.open();
         dc.bind(new InetSocketAddress(port));
-        // TODO set dc in non-blocking mode and register it to the selector
         dc.configureBlocking(false);
         dc.register(selector, SelectionKey.OP_READ);
     }
@@ -49,7 +48,6 @@ public class ServerEcho {
                 doRead(key);
             }
         } catch (IOException e) {
-            // TODO
             logger.severe("IOException");
             throw new UncheckedIOException(e);
         }
@@ -60,6 +58,7 @@ public class ServerEcho {
         sender = dc.receive(buffer);
         buffer.flip();
         if(sender == null){
+            logger.warning("Reception address null");
             return;
         }
         logger.info("Packet receive from : " + sender);

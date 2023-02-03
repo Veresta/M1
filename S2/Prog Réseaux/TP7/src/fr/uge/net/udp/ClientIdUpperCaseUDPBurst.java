@@ -1,10 +1,8 @@
 package fr.uge.net.udp;
 
-import java.awt.*;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.net.InetSocketAddress;
-import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectionKey;
@@ -19,8 +17,7 @@ import java.util.logging.Logger;
 
 import static java.nio.file.StandardOpenOption.*;
 
-public class ClientIdUpperCaseUDPOneByOne {
-
+public class ClientIdUpperCaseUDPBurst {
     private static Logger logger = Logger.getLogger(ClientIdUpperCaseUDPOneByOne.class.getName());
     private static final Charset UTF8 = Charset.forName("UTF8");
     private static final int BUFFER_SIZE = 1024;
@@ -42,14 +39,15 @@ public class ClientIdUpperCaseUDPOneByOne {
     private final ByteBuffer tmpBuf = ByteBuffer.allocateDirect(BUFFER_SIZE);
 
     private int currentLine;
+
     private State state;
 
     private static void usage() {
         System.out.println("Usage : ClientIdUpperCaseUDPOneByOne in-filename out-filename timeout host port ");
     }
-    
-    private ClientIdUpperCaseUDPOneByOne(List<String> lines, long timeout, InetSocketAddress serverAddress,
-            DatagramChannel dc, Selector selector, SelectionKey uniqueKey){
+
+    private ClientIdUpperCaseUDPBurst(List<String> lines, long timeout, InetSocketAddress serverAddress,
+                                         DatagramChannel dc, Selector selector, SelectionKey uniqueKey){
         this.lines = lines;
         this.timeout = timeout;
         this.serverAddress = serverAddress;
@@ -59,12 +57,12 @@ public class ClientIdUpperCaseUDPOneByOne {
         this.state = State.SENDING;
     }
 
-    public static ClientIdUpperCaseUDPOneByOne create(String inFilename, long timeout,
-            InetSocketAddress serverAddress) throws IOException {
+    public static ClientIdUpperCaseUDPBurst create(String inFilename, long timeout,
+                                                      InetSocketAddress serverAddress) throws IOException {
         Objects.requireNonNull(inFilename);
         Objects.requireNonNull(serverAddress);
         Objects.checkIndex(timeout, Long.MAX_VALUE);
-        
+
         // Read all lines of inFilename opened in UTF-8
         var lines = Files.readAllLines(Path.of(inFilename), UTF8);
         var dc = DatagramChannel.open();
@@ -72,7 +70,7 @@ public class ClientIdUpperCaseUDPOneByOne {
         dc.bind(null);
         var selector = Selector.open();
         var uniqueKey = dc.register(selector, SelectionKey.OP_WRITE);
-        return new ClientIdUpperCaseUDPOneByOne(lines, timeout, serverAddress, dc, selector, uniqueKey);
+        return new ClientIdUpperCaseUDPBurst(lines, timeout, serverAddress, dc, selector, uniqueKey);
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -88,7 +86,7 @@ public class ClientIdUpperCaseUDPOneByOne {
 
         // Create client with the parameters and launch it
         var upperCaseLines = create(inFilename, timeout, server).launch();
-        
+
         Files.write(Path.of(outFilename), upperCaseLines, UTF8, CREATE, WRITE, TRUNCATE_EXISTING);
     }
 
@@ -127,20 +125,7 @@ public class ClientIdUpperCaseUDPOneByOne {
      */
 
     private long updateInterestOps() {
-        if(this.state == State.SENDING){
-            uniqueKey.interestOps(SelectionKey.OP_WRITE);
-            return 0;
-        }
-
-        if(state == State.RECEIVING){
-            var mesure = timeout - (System.currentTimeMillis() - remainingTime);
-            if(mesure > 0){
-                uniqueKey.interestOps(SelectionKey.OP_READ);
-                return mesure;
-            }
-            state = State.SENDING;
-            uniqueKey.interestOps(SelectionKey.OP_WRITE);
-        }
+        // TODO
         return 0;
     }
 
@@ -155,28 +140,7 @@ public class ClientIdUpperCaseUDPOneByOne {
      */
 
     private void doRead() throws IOException {
-        buffer.clear();
-        var sender = dc.receive(buffer);
-        if(sender == null){
-            logger.warning("Sender is null");
-            return;
-        }
-        buffer.flip();
-        if(buffer.remaining() < Long.BYTES){
-            return;
-        }
-        var id = buffer.getLong();
-        if(id != currentLine) {
-            return;
-        }
-        var msg = UTF8.decode(buffer).toString();
-        upperCaseLines.add(msg);
-        currentLine++;
-        logger.info("Packet " + msg + " receive from : " + sender);
-        state = State.SENDING;
-        if(upperCaseLines.size() == lines.size()){
-            state = State.FINISHED;
-        }
+        // TODO
     }
 
     /**
@@ -186,17 +150,7 @@ public class ClientIdUpperCaseUDPOneByOne {
      */
 
     private void doWrite() throws IOException {
-        tmpBuf.clear();
-        var line = lines.get(currentLine);
-        tmpBuf.putLong(currentLine);
-        tmpBuf.put(UTF8.encode(line));
-        tmpBuf.flip();
-        dc.send(tmpBuf, serverAddress);
-        if(tmpBuf.hasRemaining()){
-            return;
-        }
-        logger.info("Packer send to : " + serverAddress + " with id :" + currentLine);
-        remainingTime = System.currentTimeMillis();
-        state = State.RECEIVING;
+        // TODO
     }
+
 }

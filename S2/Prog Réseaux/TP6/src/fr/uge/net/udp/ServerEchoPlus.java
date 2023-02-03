@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.SelectionKey;
@@ -26,7 +25,6 @@ public class ServerEchoPlus {
         selector = Selector.open();
         dc = DatagramChannel.open();
         dc.bind(new InetSocketAddress(port));
-
         dc.configureBlocking(false);
         dc.register(selector, SelectionKey.OP_READ);
     }
@@ -61,6 +59,7 @@ public class ServerEchoPlus {
         sender = dc.receive(buffer);
         buffer.flip();
         if(sender == null){
+            LOGGER.warning("Reception address null");
             return;
         }
         LOGGER.info("Packet receive from : " + sender);
