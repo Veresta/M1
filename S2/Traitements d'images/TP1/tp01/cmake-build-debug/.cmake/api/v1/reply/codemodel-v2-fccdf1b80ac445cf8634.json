@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "tp03",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "CMakeCXXCompilerId::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CMakeCXXCompilerId-Debug-8fe30402bd996125f3cc.json",
+					"name" : "CMakeCXXCompilerId",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tp1_exo2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tp1_exo2-Debug-cf4b491636dc4f8f782a.json",
+					"name" : "tp1_exo2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tp1_exo3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tp1_exo3-Debug-13aadebe8724d79c7342.json",
+					"name" : "tp1_exo3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tp1_exo4::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tp1_exo4-Debug-df0781081b58ad1bd16b.json",
+					"name" : "tp1_exo4",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP1/tp01/cmake-build-debug",
+		"source" : "/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP1/tp01"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

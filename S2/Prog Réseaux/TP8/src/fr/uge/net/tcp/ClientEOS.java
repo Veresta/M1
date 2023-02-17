@@ -40,12 +40,13 @@ public class ClientEOS {
         send.flip();
         sc.write(send);
         sc.shutdownOutput();
-        int read;
+        /*int read;
         do{
             read = sc.read(receive);
             logger.info("Read " + read + " bytes");
             if(read == -1) break;
-        }while(read != 0);
+        }while(read != 0);*/
+        readFully(sc, receive);
         sc.close();
         receive.flip();
         return UTF8_CHARSET.decode(receive).toString();
@@ -120,7 +121,7 @@ public class ClientEOS {
 
     public static void main(String[] args) throws IOException {
         var google = new InetSocketAddress("www.google.fr", 80);
-        //System.out.println(getFixedSizeResponse("GET / HTTP/1.1\r\nHost: www.google.fr\r\n\r\n", google, 512));
-        System.out.println(getUnboundedResponse("GET / HTTP/1.1\r\nHost: www.google.fr\r\n\r\n", google));
+        System.out.println(getFixedSizeResponse("GET / HTTP/1.1\r\nHost: www.google.fr\r\n\r\n", google, 512));
+        //System.out.println(getUnboundedResponse("GET / HTTP/1.1\r\nHost: www.google.fr\r\n\r\n", google));
     }
 }
