@@ -1,0 +1,7 @@
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP2/tp02_src/cmake-build-debug/CMakeFiles/CMakeCXXCompilerId.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP2/tp02_src/cmake-build-debug/CMakeFiles/tp2_exo1.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP2/tp02_src/cmake-build-debug/CMakeFiles/tp2_exo2.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP2/tp02_src/cmake-build-debug/CMakeFiles/tp2_exo3.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP2/tp02_src/cmake-build-debug/CMakeFiles/tp2_pick_color.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP2/tp02_src/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP2/tp02_src/cmake-build-debug/CMakeFiles/rebuild_cache.dir

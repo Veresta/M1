@@ -7,45 +7,50 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class OnDemandConcurrentLongSumServer {
-    private static final Logger logger = Logger.getLogger(OnDemandConcurrentLongSumServer.class.getName());
-    private static final int BUFFER_SIZE = 1024;
+public class FixedPrestartedLongSumServer {
+
+    private static final Logger logger = Logger.getLogger(FixedPrestartedLongSumServer.class.getName());
     private final ServerSocketChannel serverSocketChannel;
 
-    public OnDemandConcurrentLongSumServer(int port) throws IOException {
+    private final ArrayList<Thread> threadArrayList = new ArrayList<>();
+
+    public FixedPrestartedLongSumServer(int port, int maxClient) throws IOException {
         serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.bind(new InetSocketAddress(port));
-        logger.info(this.getClass().getName() + " starts on port " + port);
-    }
-
-    /**
-     * Iterative server main loop
-     *
-     * @throws IOException
-     */
-
-    public void launch() throws IOException {
-        logger.info("Server started");
-        while (!Thread.interrupted()) {
-            SocketChannel client = serverSocketChannel.accept();
-            threadServe(client);
+        for(var i = 0; i < maxClient; i++){
+            threadArrayList.add(new Thread(this::threadServe));
         }
+        logger.info(this.getClass().getName() + " starts on port " + port + " with at most " + maxClient + " threads pre-started.");
     }
 
-    private void threadServe(SocketChannel client){
-        Thread.ofPlatform().start(() -> {
+    public void launch() throws IOException, InterruptedException {
+        logger.info("Server started");
+        threadArrayList.forEach(Thread::start);
+    }
+
+    private void threadServe(){
+        while (!Thread.interrupted()) {
+            SocketChannel client = null;
             try {
-                logger.info("Client : " + client.getRemoteAddress());
-                serve(client);
-            } catch (IOException e) {
-                logger.log(Level.SEVERE, "Connection terminated with client by IOException", e.getCause());
+                try {
+                    client = serverSocketChannel.accept();
+                } catch (IOException e) {
+                    logger.log(Level.SEVERE, "Connection terminated with client by IOException", e.getCause());
+                }
+                try {
+                    logger.info("Client : " + client.getRemoteAddress());
+                    serve(client);
+                } catch (IOException e) {
+                    logger.log(Level.SEVERE, "Connection terminated with client by IOException", e.getCause());
+                }
             }finally {
                 silentlyClose(client);
             }
-        });
+        }
     }
 
     /**
@@ -113,8 +118,8 @@ public class OnDemandConcurrentLongSumServer {
         return true;
     }
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        var server = new OnDemandConcurrentLongSumServer(Integer.parseInt(args[0]));
+    public static void main(String[] args) throws IOException, InterruptedException {
+        var server = new FixedPrestartedLongSumServer(Integer.parseInt(args[0]), Integer.parseInt(args[1]));
         server.launch();
     }
 }

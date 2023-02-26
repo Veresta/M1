@@ -78,8 +78,20 @@ public class HTTPReader {
      *                     bytes could be read
      */
     public ByteBuffer readBytes(int size) throws IOException {
-        // TODO
-        return null;
+        var tmpBuffer = ByteBuffer.allocate(Byte.BYTES*size);
+        var nbOfByteReaded = 0;
+        buffer.flip();
+        while(nbOfByteReaded < size){
+            if(!buffer.hasRemaining()){
+                buffer.clear();
+                sc.read(buffer);
+                buffer.flip();
+            }
+            tmpBuffer.put(buffer.get());
+            nbOfByteReaded++;
+        }
+        buffer.compact();
+        return tmpBuffer;
     }
 
     /**
