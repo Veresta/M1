@@ -1,0 +1,5 @@
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP3/cmake-build-debug/CMakeFiles/CMakeCXXCompilerId.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP3/cmake-build-debug/CMakeFiles/tp3_exo1.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP3/cmake-build-debug/CMakeFiles/tp3_exo2.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d'images/TP3/cmake-build-debug/CMakeFiles/rebuild_cache.dir

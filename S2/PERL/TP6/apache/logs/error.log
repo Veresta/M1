@@ -1,0 +1,87 @@
+[Fri Mar 10 16:44:58.828337 2023] [mpm_worker:notice] [pid 12817:tid 140602367380800] AH00292: Apache/2.4.53 (Debian) configured -- resuming normal operations
+[Fri Mar 10 16:44:58.828660 2023] [core:notice] [pid 12817:tid 140602367380800] AH00094: Command line: '/home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/bin/httpd -f /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/conf/httpd.conf'
+[Fri Mar 10 16:50:24.096783 2023] [cgid:error] [pid 14596:tid 140602367380800] (13)Permission denied: AH01241: exec of '/home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/printenv' failed
+[Fri Mar 10 16:50:24.097899 2023] [cgid:error] [pid 12819:tid 140602340480768] [client 127.0.0.1:58246] End of script output before headers: printenv
+[Fri Mar 10 16:58:50.241325 2023] [cgid:error] [pid 12820:tid 140602112988928] [client 127.0.0.1:58258] AH01264: script not found or unable to stat: /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/ex5
+[Fri Mar 10 16:58:55.553135 2023] [cgid:error] [pid 17090:tid 140602367380800] (13)Permission denied: AH01241: exec of '/home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/ex5.pl' failed
+[Fri Mar 10 16:58:55.554126 2023] [cgid:error] [pid 12819:tid 140602121381632] [client 127.0.0.1:58260] End of script output before headers: ex5.pl
+[Fri Mar 10 17:01:58.332866 2023] [cgid:error] [pid 18086:tid 140602367380800] (13)Permission denied: AH01241: exec of '/home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/ex5.pl' failed
+[Fri Mar 10 17:01:58.334394 2023] [cgid:error] [pid 12820:tid 140601995556608] [client 127.0.0.1:58266] End of script output before headers: ex5.pl
+[Fri Mar 10 17:02:42.715155 2023] [cgid:error] [pid 18276:tid 140602367380800] (13)Permission denied: AH01241: exec of '/home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/printenv' failed
+[Fri Mar 10 17:02:42.716271 2023] [cgid:error] [pid 12820:tid 140602104596224] [client 127.0.0.1:58270] End of script output before headers: printenv
+[Fri Mar 10 17:16:07.386435 2023] [cgid:error] [pid 12820:tid 140602079418112] [client 127.0.0.1:58282] End of script output before headers: ex5.pl, referer: http://localhost:8080/formulaire.html
+[Fri Mar 10 17:16:22.655241 2023] [cgid:error] [pid 12820:tid 140601987163904] [client 127.0.0.1:58286] End of script output before headers: ex5.pl, referer: http://localhost:8080/formulaire.html
+[Fri Mar 10 17:19:00.019360 2023] [cgid:error] [pid 12820:tid 140601978771200] [client 127.0.0.1:58290] Premature end of script headers: ex5.pl, referer: http://localhost:8080/formulaire.html
+[Fri Mar 10 17:19:40.503890 2023] [cgid:error] [pid 12820:tid 140601970378496] [client 127.0.0.1:58294] Premature end of script headers: ex5.pl, referer: http://localhost:8080/formulaire.html
+Use of uninitialized value $entry in concatenation (.) or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/ex5.pl line 18.
+Use of uninitialized value $entry in concatenation (.) or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/ex5.pl line 18.
+[Fri Mar 10 17:46:18.543986 2023] [cgid:error] [pid 12819:tid 140600913422080] [client 127.0.0.1:58316] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:46:53.820342 2023] [cgid:error] [pid 12820:tid 140601039247104] [client 127.0.0.1:58322] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:46:55.398162 2023] [cgid:error] [pid 12819:tid 140600905029376] [client 127.0.0.1:58324] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:47:02.649569 2023] [cgid:error] [pid 12819:tid 140600896636672] [client 127.0.0.1:58328] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:47:11.304015 2023] [cgid:error] [pid 12819:tid 140600888243968] [client 127.0.0.1:58332] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:47:29.714757 2023] [cgid:error] [pid 12819:tid 140600879851264] [client 127.0.0.1:58336] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:47:30.677222 2023] [cgid:error] [pid 12820:tid 140601005676288] [client 127.0.0.1:58338] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:48:21.741781 2023] [cgid:error] [pid 12820:tid 140600384943872] [client 127.0.0.1:58342] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:49:10.395349 2023] [cgid:error] [pid 12819:tid 140602357282560] [client 127.0.0.1:58348] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:49:55.810856 2023] [cgid:error] [pid 12819:tid 140602340480768] [client 127.0.0.1:58352] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:49:57.613204 2023] [cgid:error] [pid 12820:tid 140602129774336] [client 127.0.0.1:58354] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:50:46.685077 2023] [cgid:error] [pid 12820:tid 140602340480768] [client 127.0.0.1:58358] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+[Fri Mar 10 17:50:48.127967 2023] [cgid:error] [pid 12819:tid 140602129774336] [client 127.0.0.1:58360] End of script output before headers: add.pl, referer: http://localhost:8080/formulaireadd.html
+Use of uninitialized value $field1 in concatenation (.) or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 22.
+Use of uninitialized value $field2 in concatenation (.) or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 22.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 31.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 31.
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:03:32.971109 2023] [cgid:error] [pid 12820:tid 140602087810816] [client 127.0.0.1:58382] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:03:37.710686 2023] [cgid:error] [pid 12819:tid 140602087810816] [client 127.0.0.1:58384] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:05:07.102527 2023] [cgid:error] [pid 12819:tid 140601987163904] [client 127.0.0.1:58388] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:05:08.431053 2023] [cgid:error] [pid 12820:tid 140601987163904] [client 127.0.0.1:58390] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:05:10.285329 2023] [cgid:error] [pid 12819:tid 140601978771200] [client 127.0.0.1:58392] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:05:50.999573 2023] [cgid:error] [pid 12819:tid 140601970378496] [client 127.0.0.1:58396] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:05:51.430159 2023] [cgid:error] [pid 12820:tid 140601970378496] [client 127.0.0.1:58398] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:05:51.590396 2023] [cgid:error] [pid 12819:tid 140601961985792] [client 127.0.0.1:58402] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:05:51.701095 2023] [cgid:error] [pid 12820:tid 140601961985792] [client 127.0.0.1:58404] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:05:51.896514 2023] [cgid:error] [pid 12819:tid 140601953593088] [client 127.0.0.1:58406] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:05:51.981698 2023] [cgid:error] [pid 12820:tid 140601953593088] [client 127.0.0.1:58408] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:06:53.774871 2023] [cgid:error] [pid 12820:tid 140601945200384] [client 127.0.0.1:58412] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:06:58.804719 2023] [cgid:error] [pid 12819:tid 140600921814784] [client 127.0.0.1:58414] End of script output before headers: add.pl
+No comma allowed after filehandle at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 15.
+[Fri Mar 10 18:07:20.427111 2023] [cgid:error] [pid 12819:tid 140600913422080] [client 127.0.0.1:58418] End of script output before headers: add.pl
+Use of uninitialized value $field1 in concatenation (.) or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 32.
+Use of uninitialized value $field2 in concatenation (.) or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 32.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value $field1 in concatenation (.) or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 32.
+Use of uninitialized value $field2 in concatenation (.) or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 32.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 41.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 40.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 40.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 40.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 40.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 40.
+Use of uninitialized value in join or string at /home/2inf1/mathis.menaa/Documents/M1/PERL/TP6/apache/cgi-bin/add.pl line 40.
+[Fri Mar 10 18:14:43.415266 2023] [mpm_worker:notice] [pid 12817:tid 140602367380800] AH00295: caught SIGTERM, shutting down
