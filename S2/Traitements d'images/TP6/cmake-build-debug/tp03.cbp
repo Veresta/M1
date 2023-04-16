@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="tp03"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\..\..\opt\;CMake Files\..\..\..\..\..\..\..\..\..\opt\homebrew\;CMake Files\..\..\..\..\..\..\..\..\..\opt\homebrew\lib\;CMake Files\..\..\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\;CMake Files\..\..\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\opencv4\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CMakeCXXCompilerId">
+				<Option output="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug/CMakeCXXCompilerId" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/opencv/4.7.0_1/include/opencv4"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 CMakeCXXCompilerId"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CMakeCXXCompilerId/fast">
+				<Option output="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug/CMakeCXXCompilerId" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/opencv/4.7.0_1/include/opencv4"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 CMakeCXXCompilerId/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tp1_exo2">
+				<Option output="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug/tp1_exo2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/opencv/4.7.0_1/include/opencv4"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 tp1_exo2"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tp1_exo2/fast">
+				<Option output="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug/tp1_exo2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/opencv/4.7.0_1/include/opencv4"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 tp1_exo2/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tp1_exo3">
+				<Option output="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug/tp1_exo3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/opencv/4.7.0_1/include/opencv4"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 tp1_exo3"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tp1_exo3/fast">
+				<Option output="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug/tp1_exo3" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/opencv/4.7.0_1/include/opencv4"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 tp1_exo3/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tp1_exo4">
+				<Option output="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug/tp1_exo4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/opencv/4.7.0_1/include/opencv4"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 tp1_exo4"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="tp1_exo4/fast">
+				<Option output="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug/tp1_exo4" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/opt/homebrew/Cellar/opencv/4.7.0_1/include/opencv4"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 tp1_exo4/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/mathismenaa/Documents/Travail/M1/S2/Traitements\ d&apos;images/TP1/tp01/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/cmake-build-debug/CMakeFiles/3.24.2/CompilerIdCXX/CMakeCXXCompilerId.cpp">
+			<Option target="CMakeCXXCompilerId"/>
+		</Unit>
+		<Unit filename="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/src/tp1_exo2.cpp">
+			<Option target="tp1_exo2"/>
+		</Unit>
+		<Unit filename="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/src/tp1_exo3.cpp">
+			<Option target="tp1_exo3"/>
+		</Unit>
+		<Unit filename="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/src/tp1_exo4.cpp">
+			<Option target="tp1_exo4"/>
+		</Unit>
+		<Unit filename="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/../../../../../../../../../opt/homebrew/lib/cmake/opencv4/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/../../../../../../../../../opt/homebrew/lib/cmake/opencv4/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/../../../../../../../../../opt/homebrew/lib/cmake/opencv4/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/Users/mathismenaa/Documents/Travail/M1/S2/Traitements d&apos;images/TP1/tp01/../../../../../../../../../opt/homebrew/lib/cmake/opencv4/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\..\..\opt\homebrew\lib\cmake\opencv4\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
