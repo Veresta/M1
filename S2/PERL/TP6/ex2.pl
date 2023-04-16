@@ -6,7 +6,7 @@ use DBI;
 
 my $source = 'dbi:Pg:host=sqletud.u-pem.fr;dbname=mathis.menaa_db';
 my $user = "mathis.menaa";
-my $passwd = "34Xreuceyb@";
+my $passwd = "123456";
 my $base = DBI->connect($source, $user, $passwd) or die($DBI::errstr);
 
 my $createTableSQL = 

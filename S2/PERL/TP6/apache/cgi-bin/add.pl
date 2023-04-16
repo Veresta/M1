@@ -16,7 +16,7 @@ if(!defined($field1) && !defined($field2)) {
     start_html('Titre'),
     start_form(-method=>'GET', -action=>'http://localhost:8080/cgi-bin/add.pl'),
     'PrenomNom : ', textmy $user = "mathis.menaa";
-my $passwd = "34Xreuceyb@";
+my $passwd = "123456";
 my $base = DBI->connect($source, $user, $passwd) or die($DBI::errstr);
 
 my $req = $base->prepare('INSERT INTO annuaire(prenom_nom, numero_tel) VALUES(?,?);') or die($base->errstr());
@@ -42,7 +42,7 @@ field('PrenomNom'), br,
 }else{
     my $source = 'dbi:Pg:host=sqletud.u-pem.fr;dbname=mathis.menaa_db';
     my $user = "mathis.menaa";
-    my $passwd = "34Xreuceyb@";
+    my $passwd = "123456";
     my $base = DBI->connect($source, $user, $passwd) or die($DBI::errstr);
 
     my $req = $base->prepare('INSERT INTO annuaire(prenom_nom, numero_tel) VALUES(?,?);') or die($base->errstr());
